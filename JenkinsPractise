@@ -2,7 +2,7 @@ node{
 
 try{
 
-  slackNotifications('STARTED')
+ slackNotifications('STARTED')
  def mavenhome = tool name : 'maven3.8.6'
  
  echo "The JobName is: ${env.JOB_NAME}" 
@@ -33,7 +33,7 @@ sshagent(['a63570f3-5873-464e-ac05-58ddc3a20fdf']) {
     sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@172.31.36.20:/opt/apache-tomcat-9.0.65/webapps"
 } 
   }
-  */
+  
   }//try closing
   catch(e){
   currentBuild.result="FAILURE"
