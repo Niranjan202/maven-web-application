@@ -1,8 +1,9 @@
+@Library('sharedlibsmss') _
 node('walmartnode'){
 
 try{
 
- slackNotifications('STARTED')
+ sendSlackNotifications('STARTED')
  def mavenhome = tool name : 'maven3.8.6'
  
  echo "The JobName is: ${env.JOB_NAME}" 
@@ -40,7 +41,7 @@ sshagent(['a63570f3-5873-464e-ac05-58ddc3a20fdf']) {
   throw e
   }//catch closing
   finally{
-  slackNotifications(currentBuild.result)
+  sendSlackNotifications(currentBuild.result)
   }
 } //Node closing
 /*
